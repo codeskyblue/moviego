@@ -1,12 +1,12 @@
 package models
 
 import (
-	"log"
-	"errors"
-	"github.com/astaxie/beego"
- 	"labix.org/v2/mgo"
-    "labix.org/v2/mgo/bson"
+   "github.com/astaxie/beego"
+   "github.com/sunfmin/mgodb"
+   "labix.org/v2/mgo"
+   "labix.org/v2/mgo/bson"
 )
+ 
 type Movie struct{
     Id_     bson.ObjectId `bson:"_id"`
     Alt     string   `bson:"alt"`
@@ -29,21 +29,14 @@ type Movie struct{
     Year   string   `bson:"year"`
 }
 
-func InitDb() (){
-	session, err := mgo.Dial("127.0.0.1:27017")
-    if err != nil {
-        panic(err)
-    }
-    defer session.Close()
-
-    db = session.DB("movie")
-    return db
-}
-
-func SearchMovie(keyword string) (movies []Movie, err error){
-	db := InitDb()
-	c := db.C("movie")
-	
-	err = c.Find(bson.M{"title": bson.RegEx{keyword, ""}}).All(&movies)
-	return movies, err
+var db *mgodb.Database
+ 
+func SearchMovie(keyword string) (movies []Movie){
+    dbHost := beego.AppConfig.String("mongoHost")
+    dbName := beego.AppConfig.String("mongoDb")
+    db := mgodb.NewDatabase(dbHost, dbName)
+	db.CollectionDo("movie", func(c *mgo.Collection) {
+        c.Find(bson.M{"title": bson.RegEx{keyword, ""}}).All(&movies)
+    })
+	return movies
 }

@@ -57,7 +57,9 @@ func (this *MovieController) Get() {
     this.ServeJson()
     fmt.Println("here")
    */
-    movies := SearchMovie(q)
+    var movies[]models.Movie
+
+    movies = models.SearchMovie(q)
 	this.Data["json"] = movies
 	this.ServeJson()
 }
