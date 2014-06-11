@@ -1,0 +1,54 @@
+body{font-family:"Helvetica Neue",Helvetica,Arial,"Hiragino Sans GB",sans-serif}
+.wrapper{max-height: 100%;
+    min-height: 100%;
+    width: 100%;}
+#main-bg,#login{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 0;
+}
+.inner, .min-inner {
+    width: 978px;
+    margin: 0 auto;
+}
+.min-inner {
+    width: 728px;
+}
+#main-bg{background: url('../img/008.jpg');-moz-transition:all 0.5s ease-out;-webkit-transition:all 0.5s ease-out;transition:all 0.5s ease-out;opacity:1;background-repeat:no-repeat;background-attachment:fixed;-moz-background-size:cover;-webkit-background-size:cover;-o-background-size:cover;background-size:cover;}
+#login .logo{width:261px;height:70px;position:absolute;left:50%;top:40%;background:url("../img/wumii_logo.png");text-indent:-9999px;margin-left:-130px;margin-top:-90px}
+.login{height:88px;width:100%;color:#fff;position:absolute;bottom:61px;left:0;z-index:1;top:45%;}
+.login-inner{line-height:normal;width:677px;height:88px;overflow:visible;margin:0 auto;position:relative;top:0px;text-align:center;white-space:nowrap;font-size:14px;}
+.login-uid,.login-pwd,.login-button,.login-remember,.login-link{position: absolute;}
+.login-uid{left: 0;top: 0;}
+.login-pwd{left: 309px;top: 0;}
+.login-remember{left: 0;top: 51px;}
+.login-link{left: 236px;top: 55px;}
+.login-forget{left: 310px;}
+a.login-link{color: #ffffff;}
+a.login-link:hover{color: #ffffff;}
+.login-button{top: 0px;
+    right: -49px;
+    width: 108px;
+    height: 40px;
+    line-height: 38px;
+    border: 1px solid #fff;
+    background: #fff;
+    color: #000;font-weight: 700;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;}
+.login input[type=email],.login input[type=password]{font-family: Verdana, "Helvetica Neue", Helvetica, Arial, sans-serif;font-size:16px;font-weight: 700;color:#fff;background:rgba(0,0,0,0.1);border:1px solid rgba(255,255,255,0.8);height:40px;width:280px;-webkit-border-radius:0;-moz-border-radius:0;border-radius:0;padding: 4px 6px;line-height: 20px;}
+.login input[type=email]:active,.login input[type=password]:active,.login input[type=email]:focus,.login input[type=password]:focus{font-weight: 700;background:rgba(0,0,0,0.15);-webkit-box-shadow:inset 0 1px 1px rgba(0,0,0,.075),0 0 15px rgba(255,255,255,.8);-moz-box-shadow:inset 0 1px 1px rgba(0,0,0,.075),0 0 15px rgba(255,255,255,.8);box-shadow:inset 0 1px 1px rgba(0,0,0,.075),0 0 15px rgba(255,255,255,.8);}
+.login input[type=email]:-ms-input-placeholder,.login input[type=password]:-ms-input-placeholder{color:#ffffff;}
+.login input[type=email]:-moz-placeholder,.login input[type=password]:-moz-placeholder{color:#ffffff;}
+.login input[type=email]::-webkit-input-placeholder,.login input[type=password]::-webkit-input-placeholder {color: #ffffff;}
+.login-remember input[type=checkbox] + .lbl::before,.login-remember input[type=checkbox]:checked + .lbl::before {color: #ffffff;background-color: rgba(0, 0, 0, 0.05);}
+.login .span2{margin-left: 0px;text-align: left;}
+#reg .btn-reg{float: right;}
+#reg .lbl{line-height: 32px;}
+#reg .login-container{margin: 0;}
+.login-uid .tooltip, .login-pwd .tooltip{top: -40px;left: 0;}
+.error input[type="email"], .error input[type="password"],.input.invalid-error, textarea.invalid-error{border:1px solid #E30022;}
