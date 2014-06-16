@@ -13,11 +13,18 @@
 	<link href="/static/css/style.css" rel="stylesheet">
 </head>
 <body ng-app="moivego" ng-class="pageClass">
-
+<nav class="global-nav">
+<div class="global-nav container">
+</div>
+</nav>
+<header class="site-header">
+<div ng-include="'/static/tpl/header.html'"></div>
+</header>
+<main class="main-container" ng-view></main>
 <script type="text/ng-template" id="/tpl/index.html">
    
 </script>
-<main class="main-container" ng-view></main>
+
 <script src="/static/lib/angular/angular.js"></script>
 <script src="/static/lib/jquery/jquery.js"></script>
 <script src="/static/lib/angular/angular-animate.min.js"></script>
