@@ -2,7 +2,7 @@ package models
 
 import (
 	//"errors"
-	//"fmt"
+	"fmt"
 	"github.com/astaxie/beego"
 	"github.com/sunfmin/mgodb"
 	"labix.org/v2/mgo"
