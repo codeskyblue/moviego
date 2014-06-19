@@ -54,3 +54,10 @@ func SearchMovie(keyword string) (movies []Movie) {
 	})
 	return movies
 }
+
+func TopRating(count int, sort int) (movies []Movie) {
+	db.CollectionDo("movie", func(c *mgo.Collection) {
+		c.Find(nil).Sort("-rating").Limit(count).All(&movies)
+	})
+	return movies
+}

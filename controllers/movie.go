@@ -1,15 +1,36 @@
 package controllers
 
 import (
+	//"fmt"
 	"github.com/astaxie/beego"
 	"moviego/models"
+	"strconv"
 )
 
 type MovieController struct {
 	beego.Controller
 }
 
-func (this *MovieController) Get() {
+func (this *MovieController) Rating() {
+	count := this.Input().Get("count")
+	intcount, _ := strconv.Atoi(count)
+	sort := this.Input().Get("sort")
+	intsort, _ := strconv.Atoi(sort)
+
+	if intcount == 0 {
+		intcount = 250
+	}
+	if intsort == 0 {
+		intsort = 1
+	}
+
+	var movies []models.Movie
+	movies = models.TopRating(intcount, intsort)
+	this.Data["json"] = movies
+	this.ServeJson()
+}
+
+func (this *MovieController) Getdd() {
 
 	q := this.GetString("q")
 	if q == "" {

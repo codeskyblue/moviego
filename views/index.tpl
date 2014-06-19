@@ -20,10 +20,9 @@
 <header class="site-header">
 <div ng-include="'/static/tpl/header.html'"></div>
 </header>
-<main class="main-container" ng-view></main>
-<script type="text/ng-template" id="/tpl/index.html">
-   
-</script>
+<main class="main-container">
+<div class="container" ng-include="'/static/tpl/movie_list.html'"></div>
+</main>
 
 <script src="/static/lib/angular/angular.js"></script>
 <script src="/static/lib/jquery/jquery.js"></script>
