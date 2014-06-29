@@ -4,7 +4,8 @@ angular.module('moivego.router', ['ngRoute']).
 constant('app', {}).provider('getFile', ['app',
     function (app) {
         this.html = function (fileName) {
-            return '/tpl/' + fileName ;
+            console.log(fileName);
+            return 'static/tpl/' + fileName ;
         }
         this.$get = function () {
             return {
@@ -16,13 +17,19 @@ constant('app', {}).provider('getFile', ['app',
 
     function (app,$routeProvider, $locationProvider, getFileProvider) {
         var index = {
-            templateUrl: getFileProvider.html('index.html'),
+            templateUrl: getFileProvider.html('_index.html'),
             controller: 'indexCtrl',
             pageClass: 'index'
+        };
+        var moive = {
+            templateUrl: getFileProvider.html('movie.html'),
+            controller: 'movieCtrl',
+            pageClass: 'movie'
         };
 
         $routeProvider.
         when('/', index).
+        when('/movie/:ID', moive).
         otherwise({
             redirectTo: '/'
         });

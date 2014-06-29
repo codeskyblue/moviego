@@ -30,6 +30,11 @@ func (this *MovieController) Rating() {
 	this.ServeJson()
 }
 
+func (this *MovieController) Movie() {
+	movieId := this.GetString(":id")
+	this.Ctx.WriteString(movieId)
+}
+
 func (this *MovieController) Getdd() {
 
 	q := this.GetString("q")

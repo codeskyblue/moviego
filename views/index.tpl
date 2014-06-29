@@ -20,10 +20,11 @@
 <header class="site-header">
 <div ng-include="'/static/tpl/header.html'"></div>
 </header>
-<main class="main-container">
-<div class="container" ng-include="'/static/tpl/movie_list.html'"></div>
+<main class="main-container" ng-view>
 </main>
-
+<footer class="site-footer">
+<div ng-include="'/static/tpl/footer.html'"></div>
+</footer>
 <script src="/static/lib/angular/angular.js"></script>
 <script src="/static/lib/jquery/jquery.js"></script>
 <script src="/static/lib/angular/angular-animate.min.js"></script>

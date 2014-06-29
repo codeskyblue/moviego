@@ -17,8 +17,8 @@ config(['$httpProvider','app',
         $httpProvider.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
 
     }])
-    .run(['app', '$q', '$rootScope', '$location', '$http', 'toast', 'tools', '$locale',
-            function(app, $q, $rootScope, $location, $http, toast, tools, $locale) {
+    .run(['app', '$q', '$rootScope', '$location', '$http', 'toast', 'tools', '$locale','cache', 'restAPI','promiseGet','param',
+            function(app, $q, $rootScope, $location, $http, toast, tools, $locale, cache, restAPI, promiseGet, param) {
     var global = $rootScope.global = {
         isLogin: false,
         user:{}
@@ -28,34 +28,13 @@ config(['$httpProvider','app',
     app.http = $http;
     app.rootScope = $rootScope;
     app.location = $location;
-    app.rootScope = $rootScope;
+    app.cache = cache;
+    app.restAPI = restAPI;
+    app.promiseGet = promiseGet;
+    app.param = param;
+
     angular.extend(app, tools); //添加工具函数
-
-    app.auth = function(){
-
-    };
-    app.validate = function (scope, turnoff) {
-        var collect = [],
-            error = [];
-        scope.$broadcast('genTooltipValidate', collect, turnoff);
-        console.log(collect);
-        app.each(collect, function (x) {
-            if (x.validate && x.$invalid) {
-                error.push(x);
-            }
-        });
-        if (error.length === 0) {
-            app.validate.errorList = null;
-            scope.$broadcast('genTooltipValidate', collect, true);
-        } else {
-            app.validate.errorList = error;
-        }
-        return !app.validate.errorList;
-    };
-    $rootScope.validateTooltip = {
-        validate: true,
-        validateMsg: $locale.VALIDATE
-    };
+  
     var error = {};
     //app.rootScope.$apply();
 }])
