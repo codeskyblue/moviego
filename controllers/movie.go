@@ -32,7 +32,12 @@ func (this *MovieController) Rating() {
 
 func (this *MovieController) Movie() {
 	movieId := this.GetString(":id")
-	this.Ctx.WriteString(movieId)
+	// this.Ctx.WriteString(movieId)
+
+	var movies []models.Movie
+	movies = models.GetMovie(movieId)
+	this.Data["json"] = movies
+	this.ServeJson()
 }
 
 func (this *MovieController) Getdd() {

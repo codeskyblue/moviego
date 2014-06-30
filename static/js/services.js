@@ -111,5 +111,13 @@ factory('restAPI',['$resource',
             }, restAPI.movie, listType, cache.list);
         };
     }
+]).factory('getMovie', ['restAPI', 'cache', 'promiseGet', 
+    function (restAPI, cache, promiseGet) {
+        return function (ID) {
+            return promiseGet({
+                ID: ID
+            }, restAPI.movie, cache.movie);
+        };
+    }
 ]).
 value('version', '0.1');

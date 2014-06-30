@@ -28,10 +28,10 @@ constant('app', {}).provider('getFile', ['app',
         };
 
         $routeProvider.
-        when('/', index).
         when('/movie/:ID', moive).
+        when('/', index).
         otherwise({
-            redirectTo: '/'
+           // redirectTo: '/moive'
         });
         $locationProvider.html5Mode(true);
     }

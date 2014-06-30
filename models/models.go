@@ -2,7 +2,7 @@ package models
 
 import (
 	//"errors"
-	//"fmt"
+	// "fmt"
 	"github.com/astaxie/beego"
 	"github.com/sunfmin/mgodb"
 	"labix.org/v2/mgo"
@@ -58,6 +58,13 @@ func SearchMovie(keyword string) (movies []Movie) {
 func TopRating(count int, sort int) (movies []Movie) {
 	db.CollectionDo("movie", func(c *mgo.Collection) {
 		c.Find(nil).Sort("-rating").Limit(count).All(&movies)
+	})
+	return movies
+}
+
+func GetMovie(ID string) (movies []Movie) {
+	db.CollectionDo("movie", func(c *mgo.Collection) {
+		c.FindId(bson.ObjectIdHex(ID)).All(&movies)
 	})
 	return movies
 }
