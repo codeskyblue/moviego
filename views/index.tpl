@@ -9,6 +9,7 @@
     <base href="/">
 	<title>电影库</title>
 	<link href="/static/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<link href="/static/lib/fortawesome/css/font-awesome.min.css" rel="stylesheet">
 	<link href="/static/lib/toastr/toastr.min.css" rel="stylesheet">
 	<link href="/static/css/style.css" rel="stylesheet">
 </head>
@@ -22,6 +23,7 @@
 </header>
 <main class="main-container" ng-view>
 </main>
+<div class="footer"></div>
 <footer class="site-footer">
 <div ng-include="'/static/tpl/footer.html'"></div>
 </footer>
