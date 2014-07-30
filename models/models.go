@@ -56,8 +56,9 @@ func SearchMovie(keyword string) (movies []Movie) {
 }
 
 func TopRating(count int, sort int) (movies []Movie) {
+	var genres = []string{"动作", "奇幻", "冒险"}
 	db.CollectionDo("movie", func(c *mgo.Collection) {
-		c.Find(nil).Sort("-rating").Limit(count).All(&movies)
+		c.Find(bson.M{"genres": bson.M{"$in": genres}}).Sort("-rating").Limit(count).All(&movies)
 	})
 	return movies
 }

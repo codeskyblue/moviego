@@ -1,34 +1,44 @@
 <div class="container">
 <h1>
-<span>{{hots}}</span>
+<span>{{moive.Title}}</span>
 <span class="year"></span>
 </h1>
 <article class="clearfix">
 <div class="moive-holder">
-<div class="movie-cover"><img src="/static/img/p2163275943.jpg"></div>
+<div class="movie-cover"><img src="{{moive.Image}}"></div>
 <div class="movie-property">
-<span><span class="label">导演:</span> 管虎</span><br> 
-<span><span class="label">主演:</span> 刘烨 / 张涵予 / 黄渤 / 田中千绘 / 梁静 / 王迅</span><br> 
-<span><span class="label">编剧:</span> 管虎 / 董润年</span><br> 
-<span><span class="label">类型:</span> 喜剧
-/动作</span><br> 
-<span class="label">地区:</span> 中国大陆<br> 
-<span class="label">语言:</span> 汉语普通话<br> 
-<span class="label">上映时间:</span> 2013-03-29(中国大陆)<br> 
-<span class="label">时长:</span> 108分钟<br> 
-<span class="label">别名:</span> 厨戏痞 / 厨子·戏子·痞子 / 虎烈拉 / The Chef, The Actor, The Scoundrel<br> 
-
-
-<span class="label"><a href="/web/20130916155815/http://movie.douban.com/subject/6011806/" target="_blank" rel="nofollow">
-<i class="douban-icon douban-rating"></i></a>
-<span class="movie-rating"><a href="/web/20130916155815/http://movie.douban.com/subject/6011806/" target="_blank" rel="nofollow"> <b>7.2</b></a></span>
+<span><span class="label">导演:</span> 
+<span ng-repeat="director in moive.Directors" repeat-delimiter="/">{{director}}</span>
+</span><br> 
+<span><span class="label">主演:</span> 
+<span ng-repeat="cast in moive.Casts" repeat-delimiter="/">{{cast}}</span>
+</span><br> 
+<span><span class="label">类型:</span>
+<span ng-repeat="genre in moive.Genres" repeat-delimiter="/">{{genre}}</span>
+</span><br> 
+<span>
+<span class="label">地区:</span>
+<span ng-repeat="country in moive.Countries" repeat-delimiter="/">{{country}}</span>
+</span>
+<br> 
+<span>
+<span class="label">上映时间:</span> {{moive.Year}}
+</span>
+<br> 
+<br>
+<span class="label">
+	<a href="{{moive.Alt}}" target="_blank" rel="nofollow">
+<i class="iconfont icon-doubanfangxing"></i></a>
+<span class="movie-rating"><a href="{{moive.Alt}}" target="_blank" rel="nofollow"> <b>
+{{moive.Rating}}
+</b></a></span>
 </span>
 
 
 </div>
 </div>
 <div class="movie-desc">
-<span> &nbsp; &nbsp;&nbsp; &nbsp;民国三十一年，“虎烈拉”横行华北。北平城被日军封城。城外闹瘟疫，城里闹饥荒。流氓（黄渤 饰）饿得不行，蹲在胡同里劫大户，没想到却把两个日本人劫到了一家日本料理店里。店里只有店主夫妇和一个驻店唱戏的戏子。中国店主夫妇，厨子（刘烨 饰）胆小如鼠，厨子老婆（梁静 饰）残疾弱智。戏子（张涵予 饰）颠三倒四，神神叨叨。怎么处理这俩日本人成了难题。<br>　　为了让其他俩人听自己的，流氓亮出枪，店主拔出刀，戏子干脆摸出来一手榴弹。三人陷入僵局，料理店外，此时日军和城中伪军正在进行全城地毯式搜查。之后事态发展却出人意料，闹剧迭出，情节爆笑百转。几人疯癫闹场的狂欢表象下，“曲线救国”的“愚人谍战”，才刚刚上演……</span>
+<span>{{moive.Summary}}</span>
 </div>
 <div class="movie-link">
 <div class="col-title">
@@ -43,35 +53,20 @@
 </div>
 </div>
 <div class="col-list">
-<div class="link">
+<div class="link" ng-repeat="downlink in moive.Download">
 <div class="col-md-7 col-link"> 
-	<span class="name-text">miui_HM2W_JHBCNAL5.0_8197122014_4.2.zip</span>
+	<span class="name-text">{{downlink.Name}}</span>
 	<div class="btns">
-		<a class="btn-download" data="" href="javascript:;">
+		<a class="btn-download" data="{{downlink.Href}}" href="javascript:;">
 			<i class="fa fa-download"></i>
 		</a>
 	</div>
 </div>
 <div class="col-md-3 col-link"> 
-<span>大小</span>
+<span>{{downlink.Size}}</span>
 </div>
 <div class="col-md-2 col-link"> 
-<span>720P</span>
-</div>
-</div>
-</div>
-<div class="link">
-<div class="col-md-7 col-link"> 
-	<span class="name-text">miui_HM2W_JHBCNAL5.0_8197122014_4.2.zip</span>
-	<div class="btns">
-		<a class="btn-download" data="" href="javascript:;"></a>
-	</div>
-</div>
-<div class="col-md-3 col-link"> 
-<span>大小</span>
-</div>
-<div class="col-md-2 col-link"> 
-<span>720P</span>
+<span>{{downlink.Format}}</span>
 </div>
 </div>
 </div>

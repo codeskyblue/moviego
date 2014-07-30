@@ -13,9 +13,10 @@ angular.module('moivego.controllers', [])
       function(app, $scope, $rootScope, $routeParams, getMovie) {
         var path = app.location.path().slice(1).split('/');
         getMovie(path[1]).then(function (data){
-            
+            console.log(data[0]);
+            $scope.moive = data[0];
         });
-        $scope.hots = path;
+        
   }])
   .controller('hotCtrl', ['$scope',function($scope) {
         $scope.hots = 'this is hot';
