@@ -16,6 +16,10 @@
 <body ng-app="moivego" ng-class="pageClass">
 <nav class="global-nav">
 <div class="global-nav container">
+	<ul class="site-nav">
+	    <li class="current"><a href="/movie">电影</a></li>
+	    <li class=""><a href="/tv">电视剧</a></li>
+	</ul>
 </div>
 </nav>
 <header class="site-header">

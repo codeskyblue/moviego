@@ -160,3 +160,29 @@ opacity: 1;
 background: #3ba354;
 border: 1px solid #3ba354;
 font-weight: lighter;font-size: 15px;padding: 1px;}
+.site-nav{padding-left: 0px;}
+.site-nav>li{float: left;margin-right: 8px}
+.global-nav a {
+display: block;
+padding: 0 10px;
+height: 36px;
+line-height: 36px;
+color: #BBC4C8;
+}
+.site-nav>li.current a {
+border-bottom: 3px solid #1987cb;
+color: #FFF;
+}
+.site-header .btn-search {
+position: absolute;
+right: 5px;
+top: 5px;
+border: 0;
+background: url(../img/search.png) center center no-repeat;
+width: 24px;
+height: 24px;
+text-indent: -9999em;
+z-index: 100;
+}
+.head-search .input-group{width: 100%;}
+.head-search .input-group .form-control {box-shadow:none;border-radius:2px;}

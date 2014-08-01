@@ -32,7 +32,8 @@ config(['$httpProvider','app',
     app.restAPI = restAPI;
     app.promiseGet = promiseGet;
     app.param = param;
-
+    app.home = $location.host()+$location.port()
+ 
     angular.extend(app, tools); //添加工具函数
   
     var error = {};
