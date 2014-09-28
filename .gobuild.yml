@@ -1,0 +1,18 @@
+author: ""
+description: ""
+filesets:
+  includes:
+  - README.md
+  - LICENSE
+  - conf
+  - static
+  - views
+  excludes:
+  - \.git
+  - .*\.go
+settings:
+  targetdir: ""
+  outfiles: []
+  build: |
+      ln -sf $(cd ..;pwd) src
+      go install -v
